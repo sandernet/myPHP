@@ -1,4 +1,7 @@
 <?php 
+//Подключаем файл настроек
+require_once './config.php';
+
 // Подключаем шапку сайта
 require './header.php'; 
 ?>
