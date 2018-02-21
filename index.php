@@ -7,6 +7,14 @@ require './header.php';
 ?>
 
 <?php
+
+try {
+    $db = new PDO('mysql:host=localhost;dbname=test', 'root','');
+    // сделать что-нибудь с объектом в переменной $db
+} catch (PDOException $e) {
+    print "Ошибка подключени к базе данных: " . $e->getMessage();
+}
+
 // Здесь предполагается, что исходный файл FormHelper.php
 // находится в том же каталоге, где и данный файл
 require 'FormHelper.php';
@@ -51,6 +59,58 @@ function show_form($errors = array()) {
     // Ради ясности весь код HTML-разметки и отображения
     // формы вынесен в отдельный файл
     include 'complete-form.php';
+}
+
+function show_table(){
+// получить доступ к глобальной переменной $db
+// в теле данной функции
+    global $db;
+// составить запрос к базе данных
+$sql = 'SELECT * FROM checks ORDER BY checks.id ASC';
+// Если наименование блюда передано, ввести его в
+// предложение WHERE. С помощью метода quote() и
+// функции strtr() предотвращается действие вводимых
+// пользователем подстановочных символов
+//if (strlen($input['dish_name'])) {
+//$dish = $base->quote($input['dish_name']);
+//$dish = strtr($dish, array('_' => '\_', '%' => '\%'));
+//$sql .= " AND dish_name LIKE $dish";
+//}
+// Если в элементе ввода is_spicy установлено значение
+// 'yes' или 'no', ввести в запрос SQL соответствующее
+// логическое условие. (Если же установлено значение "either",
+// вводить логическое условие в предложение WHERE не нужно.)
+//$spicy_choice = $GLOBALS['spicy_choices'][ $input['is_spicy'] ];
+//if ($spicy_choice == 'yes') {
+//$sql .= ' AND is_spicy = 1';
+//} elseif ($spicy_choice == 'no') {
+//$sql .= ' AND is_spicy = 0';
+//}
+// отправить запрос программе базы данных и получить
+// в ответ все нужные строки из таблицы
+//$stmt = $base->prepare($sql);
+//$stmt->execute(array($input['min_price'], $input['max_price']));
+//$dishes = $stmt->fetchAll();
+
+$cheking = $db->query($sql);
+if (count($cheking) == 0) {
+print 'No dishes matched.';
+} else {
+print '<table>';
+print
+'<tr><th>Dish Name</th><th>Price</th><th>Spicy?</th></tr>';
+foreach ($cheking as $dish) {
+if ($dish->late == 1) {
+$spicy = 'Опозал';
+} else {
+$spicy = '-';
+}
+printf('<tr><td>%s</td><td>$%.02f</td><td>%s</td></tr>',
+htmlentities($dish->dish_name),
+$dish->price, $spicy);
+}
+}    
+    
 }
 
 function validate_form() {
