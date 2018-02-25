@@ -5,8 +5,8 @@
 //chmn3m&O
 
 
-$system_user = 'admin';
-$system_password = '$2y$10$qCczYRc7S011VRESMqUkGeWQT4V4OQ2qkSyhnxO0c.fk.LulKwUwW';
+//$system_user = 'admin';
+//$system_password = '$2y$10$qCczYRc7S011VRESMqUkGeWQT4V4OQ2qkSyhnxO0c.fk.LulKwUwW';
 
 $site_name = 'http://crm.sander5p.beget.tech';
 // DataBase
