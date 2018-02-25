@@ -1,5 +1,14 @@
 <?php
+//ftp сервер для размщения 
+//sander5p.beget.tech
+//sander5p_crm
+//chmn3m&O
 
+
+$system_user = 'admin';
+$system_password = '$2y$10$qCczYRc7S011VRESMqUkGeWQT4V4OQ2qkSyhnxO0c.fk.LulKwUwW';
+
+$site_name = 'http://crm.sander5p.beget.tech';
 // DataBase
 define('DB_DRIVER', 'mysql');
 define('DB_HOSTNAME', 'localhost');
@@ -18,3 +27,4 @@ try {
     print "Ошибка подключени к базе данных: " . $e->getMessage();
 }
 }
+

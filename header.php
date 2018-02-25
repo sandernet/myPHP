@@ -12,7 +12,7 @@
 <header>
   <nav>
     <div id="brand">
-      <div id="logo"></div>
+        <div id="logo"><a href="<?php print $site_name; ?>"></a></div>
       <div id="word-mark"></div>
     </div>
     <div id="menu">
