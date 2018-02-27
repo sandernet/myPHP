@@ -10,27 +10,25 @@
 </ul></td>
 <?php } ?>
 <tr>
-<td>Dish Name:</td>
-<td><?= $form->input('text', ['name' => 'dish_name']) ?></td>
+<td>Имя сотрудника:</td>
+<td><?= $form->input('text', ['name' => 'name']) ?></td>
 </tr>
 <tr>
-<td>Minimum Price:</td>
-<td><?= $form->input ('text',['name' => 'min_price']) ?></td>
+<td>Статус сотрудника:</td>
+<td><?= $form->select($GLOBALS['status'],['name' => 'work']) ?></td>
 </tr>
 <tr>
-<td>Maximum Price:</td>
-<td><?= $form->input('text',['name' => 'max_price']) ?></td>
+<td>Должность сотрудника:</td>
+<td><?= $form->input('text',['name' => 'status']) ?></td>
 </tr>
 <tr>
-<td>Spicy:</td>
-<td><?= $form->select($GLOBALS['spicy_choices'],
-['name' => 'is_spicy']) ?>
+<td>Подразделение:</td>
+<td><?= $form->select($GLOBALS['locations'],['name' => 'locations']) ?>
 </td>
 </tr>
 <tr>
 <td colspan="2" align="center">
-<?= $form->input('submit', ['name' => 'search',
-'value' => 'Search']) ?></td>
+<?= $form->input('submit', ['name' => 'search','value' => 'Search']) ?></td>
 </tr>
 </table>
 </form>
