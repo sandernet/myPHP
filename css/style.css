@@ -224,8 +224,8 @@ li a p {
     background: #79EDFC;
     position: absolute;
     top: 70px;
-    -webkit-transform: translate(, );
-            transform: translate(, );
+/*    -webkit-transform: translate(, );
+            transform: translate(, );*/
     -webkit-box-shadow: 0 5px 30px -4px rgba(0, 0, 0, 0.2);
             box-shadow: 0 5px 30px -4px rgba(0, 0, 0, 0.2);
     -webkit-transition: all 0.3s;

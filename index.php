@@ -11,7 +11,7 @@ require 'FormHelper.php';
 
 // Вход в систему если сесии нету то регисрируемся
 if (array_key_exists('username', $_SESSION)) {
-    print "Hello, $_SESSION[username]";
+    print "Привет, $_SESSION[username]";
 } else {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     list($errors, $input) = validate_input_system();
