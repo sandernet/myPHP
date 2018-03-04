@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
         <link rel="stylesheet" href="css/style.css">
-        <script src="//libs.raltek.ru/libs/jquery/1.8.3/js/jquery-1.8.3.js"></script>
-        <script src="js/scripts.js"></script>
+<!--        <script src="//libs.raltek.ru/libs/jquery/1.8.3/js/jquery-1.8.3.js"></script>
+        <script src="js/scripts.js"></script>-->
     </head>
 <body>
 <header>

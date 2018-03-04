@@ -2,9 +2,9 @@
 
 //http://www.lezhenkin.ru/examples/php/reg-auth-users/
 // Подключаем файл для соединения с СУБД MySQL
-require_once 'config.php';
+//require_once 'config.php';
 // Подключаем файл, в котором будем объявлять пользовательские функции
-require_once 'functions.php';
+//require_once 'functions.php';
 session_start();
 // Подключаем шапку сайта
 require 'header.php'; 

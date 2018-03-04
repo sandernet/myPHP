@@ -7,6 +7,7 @@ SELECT id, name, status FROM users WHERE  users.active = 1
  */
 
 require_once 'config.php';
+require_once 'functions.php';
 require 'FormHelper.php';
 
 require 'header.php'; 
