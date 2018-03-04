@@ -1,6 +1,9 @@
 <?php
 /* 
-SELECT * FROM `users` WHERE active = 1 AND status = 'saler';
+ * 
+ * http://www.lezhenkin.ru/examples/php/dynamic-select-mysql/
+ * Все работающие пользователи.
+SELECT id, name, status FROM users WHERE  users.active = 1
  */
 
 require_once 'config.php';
