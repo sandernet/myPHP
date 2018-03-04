@@ -1,4 +1,6 @@
 <?php 
+
+//http://www.lezhenkin.ru/examples/php/reg-auth-users/
 //Подключаем файл настроек
 require_once 'config.php';
 session_start();
