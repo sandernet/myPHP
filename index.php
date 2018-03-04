@@ -1,11 +1,11 @@
 <?php 
-
+session_start();
 //http://www.lezhenkin.ru/examples/php/reg-auth-users/
 // Подключаем файл для соединения с СУБД MySQL
-//require_once 'config.php';
+require_once 'config.php';
 // Подключаем файл, в котором будем объявлять пользовательские функции
-//require_once 'functions.php';
-session_start();
+require_once 'functions.php';
+
 // Подключаем шапку сайта
 require 'header.php'; 
 // Здесь предполагается, что исходный файл FormHelper.php
