@@ -266,13 +266,13 @@ li a p {
 
 
 .container {
-  margin: 80px auto;
+  margin: auto auto;
   width: 640px;
 }
 
 .login {
   position: relative;
-  margin: 150px auto 0 auto;
+  margin: 90px auto 0 auto;
   padding: 20px 20px 20px;
   width: 310px;
   background: white;
