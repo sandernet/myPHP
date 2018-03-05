@@ -27,7 +27,7 @@
       </div>
       <ul>
         <li><a href="#section00"><p>Добавить заказ</p></a></li>
-        <li><a href="#section01"><p>Заказы</p></a></li>
+        <li><a href="orders.php"><p>Заказы</p></a></li>
         <li><a href="statistics.php"><p>СТАТИСТИКА</p></a></li>
         <li><a href="index.php"><p>Отметиться</p></a></li>
         <li><a href="logout.php"><p>Выйти</p></a></li>
