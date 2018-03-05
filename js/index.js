@@ -33,3 +33,13 @@ $( () => {
 		});
 	});	
 });
+
+window.onload = function() {
+			document.getElementById('login').ontextInput = function() {
+				alert(this.data);
+			},
+			focus = function() {
+				alert("ok");
+			}
+			;
+		};
