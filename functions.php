@@ -205,11 +205,11 @@ function checkpin($pin) {
 }
 
 function addworktime($pin, $locationid) {
-    $db = database();
-
-    $qlocat = $db->query("SELECT `id`, `opentime`, `closetime` FROM `locations` WHERE id = $locationid");
-
-    print $qlocat['opentime'];
+   // $db = database();
+    $qlocat = $db->query("SELECT `id`, `opentime`, `closetime` FROM `locations` WHERE `id` = '1'");
+    $qlocatd = $qlocat->fetchAll();
+//    $qlocat->execute($locationid);
+    print $qlocatd['opentime'];
 
     $quser = $db->query("SELECT `id`, `name`, `pin`, `status`, `active`, `createdAt`, `updatedAt` FROM `users` WHERE `pin` = $pin");
     
@@ -221,7 +221,7 @@ function addworktime($pin, $locationid) {
    // $stmt = $db->prepare('INSERT INTO dishes (dish_name, price, is_spicy) VALUES (?,?,?)');
     //$stmt->execute(array($_POST['new_dish_name'], $_POST['new_price'], $_POST('is_spicy']));
     $date = date();
-    $stmt->execute(array($qlocat['id'], $quser['id'],1,1, $quser['name'],$date,$date));
+    $stmt->execute(array($qlocatd['id'], $quser['id'],1,1, $quser['name'],$date,$date));
         
 	
         // Выполняем запрос
