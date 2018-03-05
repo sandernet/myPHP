@@ -31,6 +31,5 @@ $( () => {
 			$('ul').removeClass('showMenu');
 			$('#menu-toggle').removeClass('closeMenu');
 		});
-	});
-	
+	});	
 });

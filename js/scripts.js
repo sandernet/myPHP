@@ -13,8 +13,7 @@
 			// В методе request будут различные опции (настройки)
 			// Это своего рода настройки по умолчанию, созданные
 			// в объекте options
-			options = $.extend({
-				
+			options = $.extend({				
 				type: "POST",					// Метод передачи данных серверу
 				url: "requests.php",			// Путь к файлу со сценарием обращения к СУБД
 				data: null,						// Данные, которые мы будем передавать серверу
@@ -29,12 +28,10 @@
 				result: null,					// Результат работы
 				callback: null					// Функция обратного вызова
 				
-			}, options );
-			
+			}, options );			
 			options.before = function() {
 				alert( "ok before" );
-			};
-			
+			};			
 			// Тело AJAX-запроса
 			$.ajax({				
 				type: options.type,
@@ -53,57 +50,37 @@
 		response: {
 			result: {}
 		}
-	});
-	
-	jQuery(function() {
-		
+	});	
+	jQuery(function() {		
 		/**
 		 *  При выборе производителя нужно сделать многое
 		 *  Сначала из списка моделей должны быть удалены все имеющиеся модели автомобилей
 		 *  Затем поле выбора модели автомобиля должно стать неактивным
-		 */
-		 
+		 */ 
 		// Обработчик события выбора производителя
 		$( '#producer' ).change(function() {
 			
-			var producer_id = $( this ).val();	// Идентификатор выбранного производителя
-			
-			
+			var producer_id = $( this ).val();	// Идентификатор выбранного производителя			
 			
 			// Отключаем поле, установив значения свойства disabled
-			$( '#model' ).prop( 'disabled', true )
-			
+			$( '#model' ).prop( 'disabled', true )			
 			// Находим и удаляем все возможные модели автомобилей из раскрывающегося списка
-			.find( 'option:not( :first )' ).remove();
-			
-			
+			.find( 'option:not( :first )' ).remove();			
 			
 			// Если был выбран конкретный производитель
-			if ( producer_id != 0 ) {
-				
+			if ( producer_id != 0 ) {				
 				// Создаем AJAX-запрос, который вернет нам перечень моделей для выбранной марки 
-				$.request({
-					
-					data: "request=getModels&producer_id=" + producer_id,
-					
-				});
+				$.request({data: "request=getModels&producer_id=" + producer_id,});
 				// Успешный AJAX-запрос должен закончиться вставкой полученного перечня моделей 
 				// в раскрывающийся список select#model
 				// Результат AJAX-запроса мы сохраняли в отдельном объекте
 				var i = 0, models = $.response.result;
-				for ( i; i < models.length; i++ ) {
-					
+				for ( i; i < models.length; i++ ) {					
 					$( '#model' ).append( '<option value="' + models[ i ].id + '">' + models[ i ].model + '</option>' );
-					
 				}
-				
 				// Включаем поле со списком моделей
 				$( '#model' ).prop( 'disabled', false );
-				
 			}
-			
 		}); // Обработчик события выбора производителя
-	
-	});
-	
+	});	
 })(jQuery); // Используем немедленно вызываемую анонимную функцию

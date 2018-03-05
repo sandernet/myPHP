@@ -32,30 +32,20 @@ function getModels( array $array ) {
 	// Подключаемся к MySQL
 	connect();	
 	// Строка запроса из базы данных
-	$sql = "SELECT `id`, `model` FROM `models` WHERE `producer_id` = '" . $sProducerId . "' ORDER BY `model`";
-	
+	$sql = "SELECT `id`, `model` FROM `models` WHERE `producer_id` = '" . $sProducerId . "' ORDER BY `model`";	
 	// Выполняем запрос
-	$query = mysql_query( $sql ) or die ( mysql_error() );
-	
+	$query = mysql_query( $sql ) or die ( mysql_error() );	
 	// Поместим данные, которые будет возвращать функция, в массив
 	// Пока что он будет пустым
-	$array = array();
-	
+	$array = array();	
 	// Инициализируем счетчик
-	$i = 0;
-	
-	while ( $row = mysql_fetch_assoc( $query ) ) {
-		
+	$i = 0;	
+	while ( $row = mysql_fetch_assoc( $query ) ) {		
 		$array[ $i ][ 'id' ] = $row[ 'id' ];		// Идентификатор модели
-		$array[ $i ][ 'model' ] = $row[ 'model' ];	// Наименование модели
-		
+		$array[ $i ][ 'model' ] = $row[ 'model' ];	// Наименование модели		
 		// После каждой итерации цикла увеличиваем счетчик
-		$i++;
-		
-	}
-	
+		$i++;		
+	}	
 	// Возвращаем вызову функции массив с данными
-	return $array;
-	
+	return $array;	
 }
-?>

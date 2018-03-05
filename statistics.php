@@ -105,7 +105,7 @@ $form = new FormHelper($defaults);
 
 function validate_form() {
 $input = array();
-$errors = array();
+$errors = [];
 // удалить любые начальные и конечные пробелы из переданного
 // на обработку наименования блюда
 $input['name'] = trim($_POST['name'] ?? '');
@@ -196,6 +196,6 @@ if (count($dishes) == 0) {
 }
 }
 
-// Подключаем шапку сайта
-require './fooret.php'; 
+// Подключаем подвал сайта
+require 'fooret.php'; 
 

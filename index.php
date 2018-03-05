@@ -1,5 +1,7 @@
 <?php 
+
 session_start();
+
 //http://www.lezhenkin.ru/examples/php/reg-auth-users/
 // Подключаем файл для соединения с СУБД MySQL
 require_once 'config.php';
@@ -29,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 }
 
+
 function show_form($errors = array()) {
 // Собственные значения, устанавливаемые по умолчанию,
 // отсутствуют, поэтому и нечего передавать конструктору
@@ -54,28 +57,28 @@ Password: {$form->input('password',['name' => 'password'])} <br/>
 _FORM_;
 }
 
-function validate_input_system() {
-$input = array();
-$errors = array();
-// Некоторые образцы имен пользователей и паролей
-$users = array('alice' => 'dogl23', 'bob' => 'my^pwd', 'charlie' => '**fun**');
-// убедиться в достоверности имени пользователя
-$input['username'] = $_POST['username'] ?? '';
-if (! array_key_exists($input['username'], $users)) {
-    $errors[] = 'Не верно введен логин и пароль.';
-}
-// Оператор else означает, что проверка пароля пропускается,
-// если введено недостоверное имя пользователя
-else {
-// проверить правильность введенного пароля
-    $saved_password = $users[ $input['username'] ];
-    $submitted_password = $_POST['password'] ?? '';
-    if ($saved_password != $submitted_password) {
-        $errors[] = 'Не верно введен логин и пароль';
-    }
-}
-return array($errors, $input);
-}
+//function validate_input_system() {
+//$input = array();
+//$errors = array();
+//// Некоторые образцы имен пользователей и паролей
+//$users = array('alice' => 'dogl23', 'bob' => 'my^pwd', 'charlie' => '**fun**');
+//// убедиться в достоверности имени пользователя
+//$input['username'] = $_POST['username'] ?? '';
+//if (! array_key_exists($input['username'], $users)) {
+//    $errors[] = 'Не верно введен логин и пароль.';
+//}
+//// Оператор else означает, что проверка пароля пропускается,
+//// если введено недостоверное имя пользователя
+//else {
+//// проверить правильность введенного пароля
+//    $saved_password = $users[ $input['username'] ];
+//    $submitted_password = $_POST['password'] ?? '';
+//    if ($saved_password != $submitted_password) {
+//        $errors[] = 'Не верно введен логин и пароль';
+//    }
+//}
+//return array($errors, $input);
+//}
 
 function process_form($input) {
 $_SESSION['username'] = $input['username'];
@@ -84,5 +87,5 @@ print "Добро пожаловать , $_SESSION[username]";
 
 
 // Подключаем шапку сайта
-require './fooret.php'; 
+require 'fooret.php'; 
 ?>
