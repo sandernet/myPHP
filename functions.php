@@ -203,4 +203,35 @@ function checkpin($pin) {
         // Возвращаем true для сообщения об успешной авторизации пользователя
 	return true;
 }
+
+function addworktime($pin, $locationid) {
+    $db = database();
+
+    $qlocat = $db->query("SELECT `id`, `opentime`, `closetime` FROM `locations` WHERE id = $locationid");
+
+    print $qlocat['opentime'];
+
+    $quser = $db->query("SELECT `id`, `name`, `pin`, `status`, `active`, `createdAt`, `updatedAt` FROM `users` WHERE `pin` = $pin");
+    
+    print $quser['name'];
+    
+    // Составляем строку запроса
+    $stmt = $db->prepare('INSERT INTO `checks`(`userId`, `locationId`, `late`, `io`, `rationale`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?)');
+
+   // $stmt = $db->prepare('INSERT INTO dishes (dish_name, price, is_spicy) VALUES (?,?,?)');
+    //$stmt->execute(array($_POST['new_dish_name'], $_POST['new_price'], $_POST('is_spicy']));
+    $date = date();
+    $stmt->execute(array($qlocat['id'], $quser['id'],1,1, $quser['name'],$date,$date));
+        
+	
+        // Выполняем запрос
+//	$q = $db->query($sql); 
+//	if (count($query) == 0)	{
+//		$error = 'Вы ввели не верный пароль';
+//		return $error;
+//	}	
+        // Возвращаем true для сообщения об успешной авторизации пользователя
+        //если опоздал выводим true, если нет выводим false
+	return $q;
+}
 ?>
