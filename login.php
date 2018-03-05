@@ -43,30 +43,29 @@ require_once 'header.php';
 // или же авторизация еще не запущена, отображаем форму авторизации
 if($auth !== true) {
 ?>
-	<!-- Блок для вывода сообщений об ошибках -->
-	<div id="full_error" class="error" style="display:
-	<?php
-	echo $errors['full_error'] ? 'inline-block' : 'none';
-	?>
-	;">
-	<?php
-	// Выводим сообщение об ошибке, если оно есть
-	echo $errors['full_error'] ? $errors['full_error'] : '';
-	?>
-	</div>
+      
+<section class="container">
+    <div class="login">  
+    <h1>Войти в систему</h1>
 	<form action="" method="post">
-		<div class="row">
-			<label for="login">Ваш логин:</label>
-			<input type="text" class="text" name="login" id="login" />
-		</div>
-		<div class="row">
-			<label for="password">Ваш пароль:</label>
-			<input type="password" class="text" name="password" id="password" />
-		</div>
-		<div class="row">
-			<input type="submit" name="submit" id="btn-submit" value="Авторизоваться" />
-		</div>
+            <p><input type="text" name="login" value="" placeholder="Логин:"></p>
+            <p><input type="password" name="password" value="" placeholder="Пароль"></p>
+            <p class="remember_me">
+          <label>
+                <!-- Блок для вывода сообщений об ошибках -->
+                <?php
+                echo $errors['full_error'].' ';
+                ?>
+          </label>
+            </p>
+            <p class="submit"><input type="submit" name="submit" value="Войти"></p>    
 	</form>
+    </div>
+
+<!--    <div class="login-help">
+      <a href="index.html">Забыли пароль?</a> Восстановите его!
+    </div>-->
+</section>
 <?php
 }	// Закрывающая фигурная скобка условного оператора проверки успешной авторизации
 // Иначе выводим сообщение об успешной авторизации
@@ -78,6 +77,6 @@ else {
   * Если всё правильно, будет выведено сообщение об успешной авторизации,
   * пользователь будет переадресован на защищенную страницу
   */
+
+ require_once 'fooret.php';
 ?>
-</body>
-</html>

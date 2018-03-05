@@ -14,7 +14,7 @@
 <header>
   <nav>
     <div id="brand">
-        <div id="logo"><a href="<?php print $site_name; ?>"></a></div>
+        <div id="logo"><a href="<?php print $site_name;?>"><img src="images/logotip.png"></a></div>
       <div id="word-mark"></div>
     </div>
     <div id="menu">
@@ -29,7 +29,8 @@
         <li><a href="#section00"><p>Добавить заказ</p></a></li>
         <li><a href="#section01"><p>Заказы</p></a></li>
         <li><a href="statistics.php"><p>СТАТИСТИКА</p></a></li>
-        <li><a href="#section03"><p>Отметиться</p></a></li>
+        <li><a href="index.php"><p>Отметиться</p></a></li>
+        <li><a href="logout.php"><p>Выйти</p></a></li>
       </ul>
     </div>
   </nav>
