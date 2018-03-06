@@ -92,10 +92,11 @@ while ($row = $q->fetch()) {
     else {{$text2 = '-';}}
  
     
-    printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
+    printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",
     htmlentities($row[name]),
     htmlentities($row[locat]),
-    date('d.m.Y h:m', strtotime($row[createdAt])),
+    date('d.m.Y h:i', strtotime($row[createdAt])),
+    date('d.m.Y h:i', strtotime($row[updatedAt])),
     $text1, 
     $text2);
 }

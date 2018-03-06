@@ -28,7 +28,7 @@ nav {
   height: 70px;
   background: #46B2F0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 30% auto;
   position: fixed;
   z-index: 10;
   -webkit-transition: all 0.3s;
@@ -62,13 +62,13 @@ ul {
   width: 100px;
   height: 55px;
   background: #fff;
-  border-radius: 50%;
+  border-radius: 40%;
   cursor: pointer;
 }
 
 #word-mark {
-  width: 120px;
-  height: 20px;
+  width: 130px;
+  height: 23px;
   background: #fff;
   border-radius: 90px;
   margin-left: 20px;
@@ -90,7 +90,7 @@ li {
 }
 
 li a {
-    width: 120px;
+    width: 130px;
     height: 30px;
     background: #fff;
     display: table-cell;
