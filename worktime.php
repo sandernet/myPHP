@@ -5,7 +5,6 @@ require_once('functions.php');
 
 function worktime($wheresql = '') {
     $db = database();
-    // Составляем строку запроса
     $sql = "SELECT `checks`.`id`, `users`.`name`, `locations`.`fullname` as locat, `late`, `io`, `rationale`, `checks`.`createdAt`, `checks`.`updatedAt` 
             FROM `checks`, `locations`, `users` 
             WHERE `checks`.`userId`=`users`.`id` and `checks`.`locationId` = `locations`.`id` $wheresql
@@ -15,11 +14,6 @@ function worktime($wheresql = '') {
     }
     // Выполняем запрос
     $q = $db->query($sql); 
-//	if (count($query) == 0)	{
-//		$error = 'Вы ввели не верный пароль';
-//		return $error;
-//	}	
-    // Возвращаем true для сообщения об успешной авторизации пользователя
     return $q;
 }
 
