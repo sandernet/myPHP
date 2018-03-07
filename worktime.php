@@ -4,25 +4,31 @@
 require_once('functions.php');
 
 function worktime($wheresql = '') {
-	$db = database();
-	// Составляем строку запроса
-	$sql = "SELECT `checks`.`id`, `users`.`name`, `locations`.`fullname` as locat, `late`, `io`, `rationale`, `checks`.`createdAt`, `checks`.`updatedAt` 
-                FROM `checks`, `locations`, `users` 
-                WHERE `checks`.`userId`=`users`.`id` and `checks`.`locationId` = `locations`.`id` $wheresql
-                ORDER BY `checks`.`id` DESC
-                LIMIT 100";
-        // Выполняем запрос
-	$q = $db->query($sql); 
+    $db = database();
+    // Составляем строку запроса
+    $sql = "SELECT `checks`.`id`, `users`.`name`, `locations`.`fullname` as locat, `late`, `io`, `rationale`, `checks`.`createdAt`, `checks`.`updatedAt` 
+            FROM `checks`, `locations`, `users` 
+            WHERE `checks`.`userId`=`users`.`id` and `checks`.`locationId` = `locations`.`id` $wheresql
+            ORDER BY `checks`.`id` DESC ";
+    print "\$sql = " . $sql . "\n";
+
+    if ($wheresql == ''){
+        $sql = "$sql LIMIT 100";
+        print "\$sql = " . $sql . "\n";
+    }
+    // Выполняем запрос
+    $q = $db->query($sql); 
 //	if (count($query) == 0)	{
 //		$error = 'Вы ввели не верный пароль';
 //		return $error;
 //	}	
-        // Возвращаем true для сообщения об успешной авторизации пользователя
-	return $q;
+    // Возвращаем true для сообщения об успешной авторизации пользователя
+    return $q;
 }
 
 // Заранее инициализируем переменную авторизации, присвоив ей ложное значение
 $auth = false;
+
 
 // Если была нажата кнопка авторизации
 if(isset($_POST['submit'])) {
@@ -50,10 +56,7 @@ if(isset($_POST['submit'])) {
 		$errors['check_error'] = $auth;
 	}
 }
-
-
 ?>
-
 
 <!--Форма для отметки сотрудников во время прихода и ухода на работу-->
 <section class="container">
@@ -79,22 +82,20 @@ if(isset($_POST['submit'])) {
 
 <?php
 
+// формирование данных за заданный период
 if (isset($_POST['date']) && isset($_POST['datestart']) && isset($_POST['dateend'])) {
     
-    $datestart = date('Y-m-d h:i:s', strtotime($_POST['datestart'])); 
-    print "\$datestart = " . $datestart . "\n";
-
-    $dateend = date('Y-m-d h:i:s', strtotime($_POST['dateend']));
-    print "\$dateend = " . $dateend . "\n";
+    $datestart = date('Y-m-d H:i:s', strtotime($_POST['datestart'])); 
+    $dateend = date('Y-m-d 23:59:59', strtotime($_POST['dateend']));
 
     $wheresql = " and `checks`.`createdAt` >= '$datestart'  and `checks`.`createdAt` <= '$dateend' ";
-    print "\$wheresql = " . $wheresql . "\n";
 }
 else {
     $wheresql = '';
 }
 
 
+// Вывод данных в таблицу
 $q = worktime($wheresql);
 
 print '<table>';
@@ -120,7 +121,10 @@ while ($row = $q->fetch()) {
 print '</table>';
 ?>
 
-<div>
+<!--Форма выбора периода-->
+<section class="container">
+    <div class="login"> 
+    <h1>Задать период</h1> 
     <form action="" method="post">
             <p>
                 <label for="date">Начало периода: </label>
@@ -135,6 +139,7 @@ print '</table>';
             </p>
         </form>
 </div>
+</section>
         
 
 <?php
