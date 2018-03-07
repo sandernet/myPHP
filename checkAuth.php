@@ -5,7 +5,7 @@
 
 // Запускаем сессию, из которой будем извлекать логин и пароль
 // авторизовавшихся пользователей
-//session_start();
+session_start();
   
 // Подлючаем файл с пользовательскими функциями
 require_once('functions.php');
@@ -24,9 +24,9 @@ require_once('functions.php');
 // проверяем их
 
 
-if(isset($_COOKIE['login']) && $_COOKIE['login'] && isset($_COOKIE['password']) && $_COOKIE['password']) {
+if(isset($_SESSION['login']) && $_SESSION['login'] && isset($_SESSION['password']) && $_SESSION['password']) {
 	// Если проверка существующих данных завершается неудачей
-	if(!checkAuth($_COOKIE['login'], $_COOKIE['password'])) {
+	if(!checkAuth($_SESSION['login'], $_SESSION['password'])) {
 		// Переадресовываем пользователя на страницу авторизации
 		header('location: login.php');
 		// Прекращаем выполнение скрипта

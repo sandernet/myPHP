@@ -9,12 +9,12 @@
   */
 
 // Обязательно запускаем сессию
-//session_start();
-//
-//unset($_SESSION['login']);
-//unset($_SESSION['password']);
+session_start();
 
-setcookie($_COOKIE['admin'],'');
+unset($_SESSION['login']);
+unset($_SESSION['password']);
+
+//setcookie($_COOKIE['admin'],'');
 header('location: login.php');
 
 ?>

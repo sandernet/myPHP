@@ -168,7 +168,7 @@ function checkAuth($login, $password) {
     $q = $db->query($sql); 
     $query = $q->fetchAll();
     // Если пользователя с такими данными нет, возвращаем false;
-    if (count($query) == 0)	{
+    if (count($query) == 0) {
             return false;
     }
     // Иначе возвращаем true
