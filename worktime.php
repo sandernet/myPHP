@@ -10,11 +10,8 @@ function worktime($wheresql = '') {
             FROM `checks`, `locations`, `users` 
             WHERE `checks`.`userId`=`users`.`id` and `checks`.`locationId` = `locations`.`id` $wheresql
             ORDER BY `checks`.`id` DESC ";
-    print "\$sql = " . $sql . "\n";
-
     if ($wheresql == ''){
         $sql = "$sql LIMIT 100";
-        print "\$sql = " . $sql . "\n";
     }
     // Выполняем запрос
     $q = $db->query($sql); 
