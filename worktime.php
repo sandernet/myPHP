@@ -3,12 +3,12 @@
 // Подлючаем файл с пользовательскими функциями
 require_once('functions.php');
 
-function worktime() {
+function worktime($wheresql = '') {
 	$db = database();
 	// Составляем строку запроса
 	$sql = "SELECT `checks`.`id`, `users`.`name`, `locations`.`fullname` as locat, `late`, `io`, `rationale`, `checks`.`createdAt`, `checks`.`updatedAt` 
                 FROM `checks`, `locations`, `users` 
-                WHERE `checks`.`userId`=`users`.`id` and `checks`.`locationId` = `locations`.`id`
+                WHERE `checks`.`userId`=`users`.`id` and `checks`.`locationId` = `locations`.`id` $wheresql
                 ORDER BY `checks`.`id` DESC
                 LIMIT 100";
         // Выполняем запрос
@@ -78,7 +78,24 @@ if(isset($_POST['submit'])) {
 </section>
 
 <?php
-$q = worktime();
+
+if (isset($_POST['date']) && isset($_POST['datestart']) && isset($_POST['dateend'])) {
+    
+    $datestart = date('Y-m-d h:i:s', strtotime($_POST['datestart'])); 
+    print "\$datestart = " . $datestart . "\n";
+
+    $dateend = date('Y-m-d h:i:s', strtotime($_POST['dateend']));
+    print "\$dateend = " . $dateend . "\n";
+
+    $wheresql = " and `checks`.`createdAt` >= '$datestart'  and `checks`.`createdAt` <= '$dateend' ";
+    print "\$wheresql = " . $wheresql . "\n";
+}
+else {
+    $wheresql = '';
+}
+
+
+$q = worktime($wheresql);
 
 print '<table>';
 print '<tr><th>Имя</th><th>Место</th><th>Дата и время</th><th>Событие</th><th>Опоздание</th></tr>';
@@ -101,5 +118,25 @@ while ($row = $q->fetch()) {
     $text2);
 }
 print '</table>';
-
 ?>
+
+<div>
+    <form action="" method="post">
+            <p>
+                <label for="date">Начало периода: </label>
+                <input type="date" id="date" name="datestart"/>
+            </p>
+            <p>
+                <label for="date">Конец периода: </label>
+                <input type="date" id="date" name="dateend"/>
+            </p>
+            <p>
+                <button type="submit" name="date" value="date">Выбрать</button>
+            </p>
+        </form>
+</div>
+        
+
+<?php
+
+require_once 'fooret.php';

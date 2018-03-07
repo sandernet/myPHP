@@ -62,6 +62,8 @@ require 'header.php';
     <div id="linechart_material" style="width: 900px; height: 500px"></div>
 
 
+
+
 <?php
 
 //$db = database();
