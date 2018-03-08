@@ -7,12 +7,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
         <link rel="stylesheet" href="css/style.css">
+        <script src="//libs.raltek.ru/libs/jquery/1.8.3/js/jquery-1.8.3.js"></script>
+        <script src="js/scripts.js"></script>
     </head>
 <body>
 <header>
   <nav>
     <div id="brand">
-      <div id="logo"></div>
+        <div id="logo"><a href="<?php print $site_name;?>"><img src="images/logotip.png"></a></div>
       <div id="word-mark"></div>
     </div>
     <div id="menu">
@@ -24,10 +26,12 @@
         </div>
       </div>
       <ul>
-        <li><a href="#section00"><p>Добавить заказ</p></a></li>
-        <li><a href="#section01"><p>Заказы</p></a></li>
-        <li><a href="#section02"><p>000000000</p></a></li>
-        <li><a href="#section03"><p>Отметиться</p></a></li>
+        <li><a href="#section00"><p>ДОБОВИТЬ ЗАКАЗ</p></a></li>
+        <li><a href="orders.php"><p>ЗАКАЗЫ</p></a></li>
+        <li><a href="statistics.php"><p>СТАТИСТИКА</p></a></li>
+        <li><a href="index.php"><p>ОТМЕТИТЬСЯ</p></a></li>
+        <li><a href="#section00"><p>Настройка</p></a></li>
+        <li><a href="logout.php"><p>Выйти</p></a></li>
       </ul>
     </div>
   </nav>

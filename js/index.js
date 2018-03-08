@@ -31,6 +31,15 @@ $( () => {
 			$('ul').removeClass('showMenu');
 			$('#menu-toggle').removeClass('closeMenu');
 		});
-	});
-	
+	});	
 });
+
+window.onload = function() {
+			document.getElementById('login').ontextInput = function() {
+				alert(this.data);
+			},
+			focus = function() {
+				alert("ok");
+			}
+			;
+		};
