@@ -35,3 +35,27 @@ try {
 
 
 
+//[pack]
+//	buildbitmaps = false
+//[core]
+//	repositoryformatversion = 0
+//	filemode = false
+//	logallrefupdates = true
+//	bare = false
+//[user]
+//	name = admin
+//	email = admin@admin-pc
+//[remote "origin"]
+//	url = https://sandernet@github.com/sandernet/myPHP.git
+//	fetch = +refs/heads/*:refs/remotes/origin/*
+//[branch "master"]
+//	remote = origin
+//	merge = refs/heads/master
+//[remote "myPHP"]
+//	url = https://sandernet@github.com/sandernet/myPHP.git
+//	fetch = +refs/heads/*:refs/remotes/myPHP/*
+//[branch "crmLustran"]
+//	remote = myPHP
+//	merge = refs/heads/crmLustran
+
+

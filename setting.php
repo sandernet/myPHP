@@ -65,12 +65,6 @@ $localauth = false;
 //	}
 //}
 
-
-
-
-
-
-
 function outlocal() {
     $db = database();
     $sql = "SELECT `id`, `fullname`, `opentime`, `closetime`, `adres` FROM `locations`";
@@ -80,10 +74,6 @@ function outlocal() {
 
 // Вывод данных в таблицу
 $q = outlocal();
-
-
-
-
 
 print '<table class="table table-bordered table-hover">';
 print '<thead class="thead-light"><tr><th>Название</th><th>Адрес</th><th>Время работы</th><th>****</th><th>****</th></tr></thead>';
