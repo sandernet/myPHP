@@ -7,7 +7,20 @@
 require_once('header.php');
 require_once('functions.php');
 
+
+if(isset($_POST['submit'])) {
+    if(isset($_POST['pin'])) {
+            $cl = new checkuser();
+            $cl->checkpin($_POST['pin'], 'location');
+    }
+}
+
 ?>
+
+<div class="d-flex p-4 justify-content-center">
+    <p class="text-danger font-weight-bold"><?php echo $cl[1].' '; ?></p>
+</div>
+
 <div style="text-align: center">
     <h1 class="font-weight-bold"> МЕСТА </h1>
     <div class="btn btn-primary adloc">Добавить</div>
@@ -66,11 +79,6 @@ $localauth = false;
 //}
 
 
-
-
-
-
-
 function outlocal() {
     $db = database();
     $sql = "SELECT `id`, `fullname`, `opentime`, `closetime`, `adres` FROM `locations`";
@@ -80,10 +88,6 @@ function outlocal() {
 
 // Вывод данных в таблицу
 $q = outlocal();
-
-
-
-
 
 print '<table class="table table-bordered table-hover">';
 print '<thead class="thead-light"><tr><th>Название</th><th>Адрес</th><th>Время работы</th><th>****</th><th>****</th></tr></thead>';
