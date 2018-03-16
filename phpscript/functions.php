@@ -5,9 +5,7 @@
   */
   
 // Подключаем файл с параметрами подключения к СУБД
-require_once('config.php');
-require_once('./phpscript/checkuser.php');
-
+require_once('../config.php');
 
 // Проверка имени пользователя
 function checkLogin($str) {

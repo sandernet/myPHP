@@ -15,7 +15,7 @@
     <a class="navbar-brand" href="<?php print $site_name;?>">
         <img src="images/logotip.png" width="140" height="60" alt="">
     </a>
-
+      <a class="navbar-brand btn btn-warning" href="setting.php">МЕСТО</a>
 <!--    <div id="menu">
       <div id="menu-toggle">
         <div id="menu-icon">
@@ -32,8 +32,8 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">НАСТРОЙКА</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="setting.php">Места</a>
+                <a class="dropdown-item" href="#">Пользователи</a>
                 <a class="dropdown-item" href="#">Something else here</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Separated link</a>

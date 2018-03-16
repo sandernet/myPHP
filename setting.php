@@ -7,7 +7,27 @@
 require_once('header.php');
 require_once('functions.php');
 
+
+if(isset($_POST['submit'])) {
+    if(isset($_POST['pin'])) {
+            $cl = new checkuser();
+            $location = new locationcook();
+            $action = $cl->checkpin($_POST['pin'], 'location');
+            
+            $location->checkcooklocation('tws');
+            
+            ?>
+            <div class="d-flex p-4 justify-content-center">
+                <p class="text-danger font-weight-bold"><?php echo 'Вам '. $action[0].' - '.$action[2].' '; ?></p>
+            </div>
+<?php
+    }
+}
+
 ?>
+
+
+
 <div style="text-align: center">
     <h1 class="font-weight-bold"> МЕСТА </h1>
     <div class="btn btn-primary adloc">Добавить</div>
@@ -64,6 +84,7 @@ $localauth = false;
 //		$errors['full_error'] = $auth;
 //	}
 //}
+
 
 function outlocal() {
     $db = database();
