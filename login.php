@@ -43,29 +43,26 @@ require_once 'header.php';
 // или же авторизация еще не запущена, отображаем форму авторизации
 if($auth !== true) {
 ?>
-      
-<section class="container">
-    <div class="login">  
-    <h1>Войти в систему</h1>
-	<form action="" method="post">
-            <p><input type="text" name="login" value="" placeholder="Логин:"></p>
-            <p><input type="password" name="password" value="" placeholder="Пароль"></p>
-            <p class="remember_me">
-          <label>
-                <!-- Блок для вывода сообщений об ошибках -->
-                <?php
-                echo $errors['full_error'].' ';
-                ?>
-          </label>
-            </p>
-            <p class="submit"><input type="submit" name="submit" value="Войти"></p>    
-	</form>
-    </div>
-
-<!--    <div class="login-help">
-      <a href="index.html">Забыли пароль?</a> Восстановите его!
-    </div>-->
-</section>
+<div class="d-flex p-4 justify-content-center">
+    <p class="text-danger font-weight-bold"><?php echo $errors['full_error'].' '; ?></p>
+</div>
+<div class="d-flex justify-content-center">
+    <form class="form-signin" action="" method="post">
+        <img class="mb-4" src="images/logotip.png" alt="" width="200" height="100">
+        <h1 class="h3 mb-3 font-weight-normal">Войти в систему</h1>
+        
+        <label for="inputEmail" class="sr-only">Логин</label>
+        <input type="text" name="login" class="form-control" placeholder="Логин" required="" autofocus="" value="">
+        
+        <label for="inputPassword" class="sr-only">Пароль</label>
+        <input type="password" name="password" class="form-control" placeholder="Пароль" required="" value="">
+        
+        <div class="checkbox mb-3">
+            <label></label>
+        </div>
+        <input type="submit" name="submit" class="btn btn-lg btn-primary btn-block" value="Войти">
+    </form>
+</div>
 <?php
 }	// Закрывающая фигурная скобка условного оператора проверки успешной авторизации
 // Иначе выводим сообщение об успешной авторизации

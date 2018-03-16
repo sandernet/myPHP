@@ -7,6 +7,33 @@
 require_once('header.php');
 require_once('functions.php');
 
+?>
+<div style="text-align: center">
+    <h1 class="font-weight-bold"> МЕСТА </h1>
+    <div class="btn btn-primary adloc">Добавить</div>
+</div> 
+<!--Форма ввода пинкода-->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Выбрать место</h5>
+            </div>
+            <form action="setting.php" method="post">
+                <div class="modal-body">
+                    <input  type="hidden" name="locid" value="" autocomplete="off">
+                    <input class="form-control form-control-lg" type="password" name="pin" value="" placeholder="ПИН код">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" name="submit" class="btn btn-primary" value="OK"> 
+                </div>
+            </form>
+    </div>
+  </div>
+</div>
+
+<?php
 // Заранее инициализируем переменную авторизации, присвоив ей ложное значение
 $localauth = false;
 
@@ -58,19 +85,19 @@ $q = outlocal();
 
 
 
-print '<table class="table table-hover">';
-print '<thead class="thead-default"><tr><th>Название</th><th>Адрес</th><th>Время работы</th><th>****</th><th>****</th></tr></thead>';
+print '<table class="table table-bordered table-hover">';
+print '<thead class="thead-light"><tr><th>Название</th><th>Адрес</th><th>Время работы</th><th>****</th><th>****</th></tr></thead>';
 print '<tbody>';
 while ($row = $q->fetch()) {
 
-    printf("<tr class=\"table-success\"><td id=%s>%s</td><td>%s</td><td>%s - %s</td><td>%s</td><td>%s</td></tr>",
+    printf("<tr class=\"table-light\"><td id=%s>%s</td><td>%s</td><td>%s - %s</td><td>%s</td><td>%s</td></tr>",
     htmlentities($row[id]),
     htmlentities($row[fullname]),
     htmlentities($row[adres]),
     htmlentities($row[opentime]),
     htmlentities($row[closetime]),
-    '<a href="#openModal" onclick="f('.htmlentities($row[id]).')" >Выбрать</a>',
-    '<a href="#openModal" class="modal" onclick="mmmoooddd">Редактировать</a>');
+    '<a class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="f('.htmlentities($row[id]).')" >Выбрать</a>',
+    '<a class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="mmmoooddd">Редактировать</a>');
 }
 print '</tbody>';
 print '</table>';
@@ -78,35 +105,6 @@ print '</table>';
 //// Если запущен процесс авторизации, но она не была успешной,
 //// или же авторизация еще не запущена, отображаем форму авторизации
 //if($auth !== true) {
-?>
-
-<div class="">
-    <a class="btn btn-outline-primary">Добавить</a>
-</div>
-
-<div id="openModal" class="modalDialog">
-<div>
-    <a href="#close" title="Закрыть" class="close">X</a>
-<!--        <section class="container">
-        <div class="login">  -->
-    
-        <div class="input-group margin">
-            <input class="form-control" type="text">
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-info btn-flat">Go!</button>
-                </span>
-        </div>
-    
-<!--        <form action="setting.php" method="post">
-                <p><input type="hidden" name="locid" value="" autocomplete="off"></p>
-                <p><input type="password" name="pin" value="" placeholder="ПИН код"></p>
-                <p class="submit"><input type="submit" name="submit" value="Выбрать"></p>    
-            </form>-->
-<!--        </div>
-    </section>-->
-</div>
-</div>
-<?php
 //}	// Закрывающая фигурная скобка условного оператора проверки успешной авторизации
 //// Иначе выводим сообщение об успешной авторизации
 //else {
