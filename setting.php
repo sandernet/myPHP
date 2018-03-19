@@ -3,30 +3,30 @@
   * Страница выбора места. Предполагается, 
   * что в вашей базе данных присутствует таблица locations,
   */
-// Подлючаем файл с пользовательскими функциями
-require_once('header.php');
 require_once('functions.php');
 
 
+
+
+// Подлючаем файл с пользовательскими функциями
 if(isset($_POST['submit'])) {
     if(isset($_POST['pin'])) {
-            $cl = new checkuser();
-            $location = new locationcook();
-            $action = $cl->checkpin($_POST['pin'], 'location');
-            
-            $location->checkcooklocation('tws');
-            
-            ?>
-            <div class="d-flex p-4 justify-content-center">
-                <p class="text-danger font-weight-bold"><?php echo 'Вам '. $action[0].' - '.$action[2].' '; ?></p>
-            </div>
-<?php
+        $cl = new checkuser();
+        $ca = $cl->checkpin($_POST['pin'], 'location');
+        if ($ca[0]){
+            setcookie('location', $_POST['locid'] , time()+3600*5);
+//            print "!!!!!cookie установлены. Приветствие:". $_COOKIE['location'];
+            print "!!cookie установлены. Приветствие:". $_COOKIE['location'];
+        } 
     }
 }
 
+require_once('header.php');
 ?>
 
-
+<div class="d-flex p-4 justify-content-center">
+    <p class="text-danger font-weight-bold"><?php if (isset($ca[1])) {echo $ca[1].' ';} ?> </p>
+</div>
 
 <div style="text-align: center">
     <h1 class="font-weight-bold"> МЕСТА </h1>

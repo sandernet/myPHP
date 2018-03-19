@@ -1,3 +1,8 @@
+<?php
+ini_set("display_errors",1);
+error_reporting(E_ALL); 
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +20,7 @@
     <a class="navbar-brand" href="<?php print $site_name;?>">
         <img src="images/logotip.png" width="140" height="60" alt="">
     </a>
-      <a class="navbar-brand btn btn-warning" href="setting.php">МЕСТО</a>
+    <a class="navbar-brand btn btn-warning" href="setting.php">МЕСТО</a>
 <!--    <div id="menu">
       <div id="menu-toggle">
         <div id="menu-icon">
@@ -28,12 +33,12 @@
         <li class="nav-item"><a class="nav-link" href="#section00"><p>ДОБОВИТЬ ЗАКАЗ</p></a></li>
         <li class="nav-item"><a class="nav-link" href="orders.php"><p>ЗАКАЗЫ</p></a></li>
         <li class="nav-item"><a class="nav-link" href="statistics.php"><p>СТАТИСТИКА</p></a></li>
-        <li class="nav-item"><a class="nav-link" href="index.php"><p>ОТМЕТИТЬСЯ</p></a></li>
+        <li class="nav-item"><a class="nav-link" href="worktime.php"><p>ОТМЕТИТЬСЯ</p></a></li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">НАСТРОЙКА</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="setting.php">Места</a>
-                <a class="dropdown-item" href="#">Пользователи</a>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="#">Something else here</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Separated link</a>

@@ -28,12 +28,12 @@ class checkuser {
 
     public function checkpin($pin, $action) {
         $user = $this->outuser($pin);
+
         if ($this->permission[$user['status']][$action]){
-            return $chpin = [$user['name'], true, 'Действие разрешено!!'];
+            return $chpin = [true,'Действие разрешено!!'];
         }
         else {
-            $chpin = [$user, false, 'Действие НЕ разрешено!!'];
-            return $chpin;
+            return $chpin = [false,'Действие НЕ разрешено!!'];
         }
     }
    
@@ -57,23 +57,5 @@ class checkuser {
             print "Ошибка подключени к базе данных: " . $e->getMessage();
         }
     }
-}
-
-
-class locationcook {
-
-    function __construct() {
-        
-    }
     
-    public function checkcooklocation($param) {
-        if(!isset($_COOKIE['location'])){
-           // $location = md5(uniqid());	
-            setcookie("location", $location, time()+60*60*24*30);
-        }else{
-            print_r($_COOKIE['location']);
-        }
-        
-    }
-
 }

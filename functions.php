@@ -223,16 +223,5 @@ function addworktime($pin, $locationid) {
     $date = date("Y-m-d H:i:s");
     
     $stmt->execute(array($quser['id'], $qlocat['id'], 1,1, $quser['name'],$date));
-        
-	
-        // Выполняем запрос
-//	$q = $db->query($sql); 
-//	if (count($query) == 0)	{
-//		$error = 'Вы ввели не верный пароль';
-//		return $error;
-//	}	
-        // Возвращаем true для сообщения об успешной авторизации пользователя
-        //если опоздал выводим true, если нет выводим false
-//	return $q;
 }
 ?>

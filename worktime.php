@@ -2,6 +2,7 @@
 
 // Подлючаем файл с пользовательскими функциями
 require_once('functions.php');
+require 'header.php';
 
 function worktime($wheresql = '') {
     $db = database();
@@ -58,16 +59,25 @@ if(isset($_POST['submit'])) {
         print $message;
     }
     ?>    
+    <div class="modal-content">
+    	<form action="" method="post">
+                <div class="modal-body">
+                    <input class="form-control form-control-lg" type="password" name="pin" value="" placeholder="ПИН код">
+                    <input type="submit" name="submit" class="btn btn-primary" value="OK"> 
+                </div>
+            </form>
+    </div>
+<!--    
     	<form action="" method="post">
         <p><input type="password" name="pin" value="" placeholder="ПИН код"></p>
         <p class="remember_me">
             <label>
-                <!-- Блок для вывода сообщений об ошибках -->
-                <?php echo $errors['check_error'].' '; ?>
+                 Блок для вывода сообщений об ошибках 
+                <?php //echo $errors['check_error'].' '; ?>
             </label>
         </p>
         <p class="submit"><input type="submit" name="submit" value="Ok"></p>    
-	</form>
+	</form>-->
     </div>
 </section>
 
@@ -89,7 +99,7 @@ else {
 // Вывод данных в таблицу
 $q = worktime($wheresql);
 
-print '<table>';
+print '<table class="table table-bordered table-hover">';
 print '<tr><th>Имя</th><th>Место</th><th>Дата и время</th><th>Событие</th><th>Опоздание</th></tr>';
 
 while ($row = $q->fetch()) {

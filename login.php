@@ -29,7 +29,7 @@ if(isset($_POST['submit'])) {
 	// от общего доступа страницу
 	if($auth === true) {
 		$message = '<p>Вы успешно авторизовались в системе. Сейчас вы будете переадресованы на главную страницу сайта. Если это не произошло, перейдите на неё по <a href="/">прямой&nbsp;ссылке</a>.</p>';
-		header('location: index.php');
+		header('location: checkAuth.php');
 	}
 	// Иначе сообщаем пользователю об ошибке
 	else {
@@ -44,7 +44,7 @@ require_once 'header.php';
 if($auth !== true) {
 ?>
 <div class="d-flex p-4 justify-content-center">
-    <p class="text-danger font-weight-bold"><?php echo $errors['full_error'].' '; ?></p>
+    <p class="text-danger font-weight-bold"><?php if (isset($errors['full_error'])) {echo $errors['full_error'].' ';} ?></p>
 </div>
 <div class="d-flex justify-content-center">
     <form class="form-signin" action="" method="post">
