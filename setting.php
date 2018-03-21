@@ -16,7 +16,7 @@ if(isset($_POST['submit'])) {
         if ($ca[0]){
             setcookie('location', $_POST['locid'] , time()+3600*5);
 //            print "!!!!!cookie установлены. Приветствие:". $_COOKIE['location'];
-            print "!!cookie установлены. Приветствие:". $_COOKIE['location'];
+//            print "!!cookie установлены. Приветствие:". $_COOKIE['location'];
         } 
     }
 }
@@ -101,13 +101,8 @@ print '<thead class="thead-light"><tr><th>Название</th><th>Адрес</t
 print '<tbody>';
 while ($row = $q->fetch()) {
 
-    printf("<tr class=\"table-light\"><td id=%s>%s</td><td>%s</td><td>%s - %s</td><td>%s</td><td>%s</td></tr>",
-    htmlentities($row[id]),
-    htmlentities($row[fullname]),
-    htmlentities($row[adres]),
-    htmlentities($row[opentime]),
-    htmlentities($row[closetime]),
-    '<a class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="f('.htmlentities($row[id]).')" >Выбрать</a>',
+    printf("<tr class=\"table-light\"><td id=$row[id]>$row[fullname]</td><td>$row[adres]</td><td>$row[opentime] - $row[closetime]</td><td><a class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModalLong\" onclick=\"f($row[id])\" >Выбрать</a></td><td>%s</td></tr>",
+
     '<a class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onclick="mmmoooddd">Редактировать</a>');
 }
 print '</tbody>';

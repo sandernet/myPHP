@@ -44,12 +44,11 @@ else {
 }
 //Проверяем выбрана ли локация на месте
 
-if(isset($_COOKIE['location'])) {
-    print 'Проверка проходит нужно достовать даннве из базы';
+if(!isset($_COOKIE['location'])) {
 	// Если проверка существующих данных завершается неудачей
 //	if(!checkAuth($_COOKIE['location'])) {
 //		// Переадресовываем пользователя на страницу авторизации
-		header('location: statistics.php');
+		header('location: setting.php');
 		// Прекращаем выполнение скрипта
 		exit;
 //	}
@@ -58,7 +57,7 @@ if(isset($_COOKIE['location'])) {
 // считаем что авторизации нет, переадресовываем пользователя
 // на страницу авторизации
 else {
-	header('location: setting.php');
+	header('location: statistics.php');
 	// Прекращаем выполнение сценария
 	exit;
 }

@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>crm система управления!</title>
+        <title>ЛюстраН - CRM</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
         <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
@@ -16,7 +16,7 @@ error_reporting(E_ALL);
     </head>
 <body>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between cl-nav">
     <a class="navbar-brand" href="<?php print $site_name;?>">
         <img src="images/logotip.png" width="140" height="60" alt="">
     </a>
@@ -32,19 +32,26 @@ error_reporting(E_ALL);
       <ul class="nav nav-pills">
         <li class="nav-item"><a class="nav-link" href="#section00"><p>ДОБОВИТЬ ЗАКАЗ</p></a></li>
         <li class="nav-item"><a class="nav-link" href="orders.php"><p>ЗАКАЗЫ</p></a></li>
-        <li class="nav-item"><a class="nav-link" href="statistics.php"><p>СТАТИСТИКА</p></a></li>
         <li class="nav-item"><a class="nav-link" href="worktime.php"><p>ОТМЕТИТЬСЯ</p></a></li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">СТАТИСТИКА</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="statistics.php">Юбилейный</a>
+                <a class="dropdown-item" href="statistics.php">Гермес</a>
+                <a class="dropdown-item" href="statistics.php">Офис</a>
+            </div>
+        </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">НАСТРОЙКА</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="setting.php">Место</a>
+                <a class="dropdown-item" href="#">Пользователи</a>
+                <a class="dropdown-item" href="#">Ввод статистики</a>
+                <a class="dropdown-item" href="#">Для администратора</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+                <a class="dropdown-item" href="logout.php">Выйти</a>
             </div>
         </li>
-        <li class="nav-item"><a class="nav-link" href="logout.php"><p>Выйти</p></a></li>
       </ul>
     </div>
   </nav>

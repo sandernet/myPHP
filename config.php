@@ -8,13 +8,13 @@
 //ftp сервер для размщения 
 //sander5p.beget.tech
 //sander5p_crm
-//chmn3m&O
+//ad901m
 
 
 //$system_user = 'admin';
 //$system_password = '$2y$10$qCczYRc7S011VRESMqUkGeWQT4V4OQ2qkSyhnxO0c.fk.LulKwUwW';
 date_default_timezone_set('Asia/Irkutsk');
-$site_name = 'http://crm.sander5p.beget.tech/';
+$site_name = 'https://svetnadom38.ru/';
 
 // DataBase
 //define('DB_DRIVER', 'mysql');
